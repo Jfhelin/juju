@@ -424,7 +424,7 @@ func refreshImageCache(ctx context.Context, cli ComputeClient, compartmentID *st
 	cacheMutex.Lock()
 	defer cacheMutex.Unlock()
 
-	if globalImageCache.isStale() == false {
+	if !globalImageCache.isStale() {
 		return globalImageCache, nil
 	}
 

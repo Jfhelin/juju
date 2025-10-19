@@ -96,7 +96,7 @@ func (c *IntrospectCommand) Init(args []string) error {
 	if c.path != "" && c.listen != "" {
 		return errors.New("a query path may not be specified with --listen")
 	}
-	if c.post == false {
+	if !c.post {
 		// No args expected for post.
 		return c.CommandBase.Init(args)
 	}

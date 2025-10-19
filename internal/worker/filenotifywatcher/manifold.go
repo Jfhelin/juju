@@ -54,12 +54,7 @@ func Manifold(config ManifoldConfig) dependency.Manifold {
 				return nil, errors.Trace(err)
 			}
 
-			cfg := WorkerConfig{
-				Clock:             config.Clock,
-				Logger:            config.Logger,
-				NewWatcher:        config.NewWatcher,
-				NewINotifyWatcher: config.NewINotifyWatcher,
-			}
+			cfg := WorkerConfig(config)
 
 			w, err := newWorker(cfg)
 			if err != nil {

@@ -5169,9 +5169,7 @@ func (s *changesSuite) checkBundleImpl(c *tc.C,
 		for _, change := range changes {
 			c.Log(change.Description())
 
-			for _, descr := range change.Description() {
-				obtained = append(obtained, descr)
-			}
+			obtained = append(obtained, change.Description()...)
 		}
 		c.Check(obtained, tc.DeepEquals, expectedChanges)
 	}

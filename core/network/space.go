@@ -124,9 +124,7 @@ func (s SpaceInfos) AllSpaceInfos() (SpaceInfos, error) {
 func (s SpaceInfos) AllSubnetInfos() (SubnetInfos, error) {
 	subs := make(SubnetInfos, 0)
 	for _, space := range s {
-		for _, sub := range space.Subnets {
-			subs = append(subs, sub)
-		}
+		subs = append(subs, space.Subnets...)
 	}
 	return subs, nil
 }

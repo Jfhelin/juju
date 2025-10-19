@@ -807,7 +807,7 @@ func (w *Worker) waitForMinions(
 			if failures > 0 {
 				w.logger.Errorf(ctx, formatMinionFailure(reports, infoPrefix))
 				w.setErrorStatus(ctx, "%s, some agents reported failure", infoPrefix)
-				if waitPolicy == failFast {
+				if !waitPolicy {
 					return false, nil
 				}
 			}

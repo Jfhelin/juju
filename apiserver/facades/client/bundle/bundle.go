@@ -112,9 +112,7 @@ func (b *BundleAPI) doGetBundleChanges(
 	if err := data.Verify(vs.verifyConstraints, vs.verifyStorage, vs.verifyDevices); err != nil {
 		if verificationError, ok := err.(*charm.VerificationError); ok {
 			validationErrors := make([]error, len(verificationError.Errors))
-			for i, e := range verificationError.Errors {
-				validationErrors[i] = e
-			}
+			copy(validationErrors, verificationError.Errors)
 			return nil, validationErrors, nil
 		}
 		// This should never happen as Verify only returns verification errors.

@@ -4,7 +4,6 @@
 package resource
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/juju/errors"
@@ -25,7 +24,7 @@ type resourceValue struct {
 func parseResourceValueArg(raw string) (name string, value string, _ error) {
 	vals := strings.SplitN(raw, "=", 2)
 	if len(vals) < 2 {
-		msg := fmt.Sprintf("expected name=path format")
+		msg := "expected name=path format"
 		return "", "", errors.NewNotValid(nil, msg)
 	}
 

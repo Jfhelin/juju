@@ -124,9 +124,7 @@ func (a *admin) login(ctx context.Context, req params.LoginRequest, loginVersion
 		return fail, errors.Trace(err)
 	}
 	pServers := make([]network.HostPorts, len(hostPorts))
-	for i, hps := range hostPorts {
-		pServers[i] = hps
-	}
+	copy(pServers, hostPorts)
 
 	// apiRoot is the API root exposed to the client after login.
 	var apiRoot rpc.Root

@@ -196,7 +196,7 @@ func (s *RunHookSuite) TestRunHook(c *tc.C) {
 		} else {
 			c.Assert(err, tc.ErrorMatches, t.err)
 		}
-		if t.spec.background != "" && time.Now().Sub(t0) > 5*time.Second {
+		if t.spec.background != "" && time.Since(t0) > 5*time.Second {
 			c.Errorf("background process holding up hook execution")
 		}
 		c.Assert(hookType, tc.Equals, t.hookType)

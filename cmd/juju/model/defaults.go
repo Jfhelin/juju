@@ -577,9 +577,7 @@ func (c *defaultsCommand) verifyKnownKeys(ctx context.Context, client defaultsCo
 	}
 
 	allKeys := c.configBase.KeysToReset[:]
-	for _, k := range keys {
-		allKeys = append(allKeys, k)
-	}
+	allKeys = append(allKeys, keys...)
 
 	for _, key := range allKeys {
 		// check if the key exists in the known config

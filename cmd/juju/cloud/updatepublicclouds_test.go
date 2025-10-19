@@ -67,7 +67,7 @@ func encodeCloudYAML(c *tc.C, yaml string) string {
 	c.Assert(err, tc.ErrorIsNil)
 	err = plaintext.Close()
 	c.Assert(err, tc.ErrorIsNil)
-	return string(buf.Bytes())
+	return buf.String()
 }
 
 func (s *updatePublicCloudsSuite) setupTestServer(c *tc.C, serverContent string) *httptest.Server {

@@ -300,7 +300,7 @@ func (i *iscsiConnectionInfo) addTarget() error {
 }
 
 func (i *iscsiConnectionInfo) login() error {
-	if i.isNodeConfigured() == false {
+	if !i.isNodeConfigured() {
 		if err := i.addTarget(); err != nil {
 			return errors.Trace(err)
 		}

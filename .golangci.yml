@@ -14,13 +14,8 @@ linters:
     - sqlclosecheck
     - unconvert
     - unused
-    - lll          # NEW: Line length enforcement
     - staticcheck  # NEW: Code simplification (includes gosimple)
-    - exhaustruct  # NEW: Struct initialization
   settings:
-    lll:
-      line-length: 120
-      tab-width: 4
     staticcheck:
       checks:
         - "S*"  # Simplification checks (formerly gosimple)

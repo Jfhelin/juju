@@ -86,7 +86,7 @@ func (c *ConfigGetCommand) Run(ctx *cmd.Context) error {
 		}
 		value = settings
 	} else {
-		value, _ = settings[c.Key]
+		value = settings[c.Key]
 	}
 	return c.out.Write(ctx, value)
 }

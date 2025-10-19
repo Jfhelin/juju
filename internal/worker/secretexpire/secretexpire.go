@@ -80,7 +80,7 @@ type secretRevisionExpiryInfo struct {
 }
 
 func (s secretRevisionExpiryInfo) GoString() string {
-	interval := s.expireTime.Sub(time.Now())
+	interval := time.Until(s.expireTime)
 	if interval < 0 {
 		return fmt.Sprintf("%s expiry: %v ago at %s", expiryKey(s.uri, s.revision), -interval, s.expireTime.Format(time.RFC3339))
 	}

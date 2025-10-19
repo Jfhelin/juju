@@ -209,7 +209,7 @@ func getMachineIds(data base.ModelStatus) []string {
 // getApplicationNames gets slice of application names from modelData.
 func getApplicationNames(data base.ModelStatus) []string {
 	return transform.Slice(data.Applications, func(app base.Application) string {
-		return fmt.Sprintf("%s", app.Name)
+		return app.Name
 	})
 }
 

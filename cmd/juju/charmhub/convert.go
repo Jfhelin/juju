@@ -174,7 +174,7 @@ func channelArches(platforms []corecharm.Platform) set.Strings {
 }
 
 func publisher(ch transport.Entity) string {
-	publisher, _ := ch.Publisher["display-name"]
+	publisher := ch.Publisher["display-name"]
 	return publisher
 }
 

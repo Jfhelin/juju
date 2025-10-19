@@ -45,7 +45,7 @@ func (m *CallMocker) MethodCall(receiver interface{}, fnName string, args ...int
 // nil.
 func (m *CallMocker) Results(fnName string, args ...interface{}) []interface{} {
 	for _, r := range m.results[fnName] {
-		if reflect.DeepEqual(r.args, args) == false {
+		if !reflect.DeepEqual(r.args, args) {
 			continue
 		}
 		r.logCall()

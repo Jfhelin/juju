@@ -1000,9 +1000,7 @@ func unitInfoFromParams(in params.UnitInfoResult) UnitInfo {
 		ProviderId:      in.Result.ProviderId,
 		Address:         in.Result.Address,
 	}
-	for _, p := range in.Result.OpenedPorts {
-		info.OpenedPorts = append(info.OpenedPorts, p)
-	}
+	info.OpenedPorts = append(info.OpenedPorts, in.Result.OpenedPorts...)
 	for _, inRd := range in.Result.RelationData {
 		erd := EndpointRelationData{
 			RelationId:      inRd.RelationId,

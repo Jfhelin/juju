@@ -180,7 +180,7 @@ func (c *RelationSetCommand) Run(ctx *cmd.Context) (err error) {
 		isLeader, lErr := c.ctx.IsLeader()
 		if lErr != nil {
 			return errors.Annotate(lErr, "cannot determine leadership status")
-		} else if isLeader == false {
+		} else if !isLeader {
 			return errors.Errorf("cannot write relation settings")
 		}
 		settings, err = r.ApplicationSettings(ctx)

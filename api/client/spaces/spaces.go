@@ -71,8 +71,7 @@ func (api *API) CreateSpace(ctx context.Context, name string, cidrs []string, pu
 // Containing subnets, applications and machines count associated with it.
 func (api *API) ShowSpace(ctx context.Context, name string) (params.ShowSpaceResult, error) {
 	var response params.ShowSpaceResults
-	var args interface{}
-	args = params.Entities{
+	var args interface{} = params.Entities{
 		Entities: []params.Entity{{Tag: names.NewSpaceTag(name).String()}},
 	}
 	err := api.facade.FacadeCall(ctx, "ShowSpace", args, &response)

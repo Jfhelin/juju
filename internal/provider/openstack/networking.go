@@ -75,7 +75,7 @@ func internalNetworkFilter() *neutron.Filter {
 // the exact given name AND router:external boolean result.
 func networkFilter(name string, external bool) *neutron.Filter {
 	filter := neutron.NewFilter()
-	filter.Set(neutron.FilterNetwork, fmt.Sprintf("%s", name))
+	filter.Set(neutron.FilterNetwork, name)
 	filter.Set(neutron.FilterRouterExternal, fmt.Sprintf("%t", external))
 	return filter
 }

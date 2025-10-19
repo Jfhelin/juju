@@ -65,12 +65,7 @@ func Manifold(config ManifoldConfig) dependency.Manifold {
 				return nil, errors.Trace(err)
 			}
 
-			w, err := NewWorker(WorkerConfig{
-				NewHTTPClient:       config.NewHTTPClient,
-				NewHTTPClientWorker: config.NewHTTPClientWorker,
-				Clock:               config.Clock,
-				Logger:              config.Logger,
-			})
+			w, err := NewWorker(WorkerConfig(config))
 			return w, errors.Trace(err)
 		},
 	}

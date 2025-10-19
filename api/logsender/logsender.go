@@ -90,7 +90,7 @@ func (w *writer) WriteLog(m *params.LogRecord) error {
 	if err := w.conn.WriteJSON(m); err != nil {
 		var readErr error
 		select {
-		case readErr, _ = <-w.readErrs:
+		case readErr = <-w.readErrs:
 		default:
 		}
 

@@ -1527,7 +1527,7 @@ func (s *environSuite) assertStartInstanceRequests(
 	// Fix the round tripping of the vm identities.
 	resources, ok = expected.Properties.Template.(map[string]interface{})["resources"].([]interface{})
 	c.Assert(ok, tc.IsTrue)
-	identity, _ := resources[vmResourceIndex].(map[string]interface{})["identity"]
+	identity := resources[vmResourceIndex].(map[string]interface{})["identity"]
 	if identity != nil {
 		userAssignedIdentities, _ := identity.(map[string]interface{})["userAssignedIdentities"].(map[string]interface{})
 		for k := range userAssignedIdentities {

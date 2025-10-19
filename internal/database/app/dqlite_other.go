@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 
 	"github.com/juju/errors"
+	// Import go-sqlite3 driver for SQLite support when dqlite is not available
 	_ "github.com/mattn/go-sqlite3"
 
 	"github.com/juju/juju/internal/database/client"

@@ -21,6 +21,7 @@ import (
 	"github.com/juju/juju/core/secrets"
 	"github.com/juju/juju/internal/cmd"
 	"github.com/juju/juju/internal/secrets/provider"
+	// Register all secret providers for backend creation
 	_ "github.com/juju/juju/internal/secrets/provider/all"
 )
 

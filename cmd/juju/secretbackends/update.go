@@ -14,6 +14,7 @@ import (
 	jujucmd "github.com/juju/juju/cmd"
 	"github.com/juju/juju/cmd/modelcmd"
 	"github.com/juju/juju/internal/cmd"
+	// Register all secret providers for backend updates
 	_ "github.com/juju/juju/internal/secrets/provider/all"
 )
 

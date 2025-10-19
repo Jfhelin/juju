@@ -17,6 +17,7 @@ import (
 	"github.com/juju/juju/core/secrets"
 	"github.com/juju/juju/domain/secretbackend"
 	secretbackendservice "github.com/juju/juju/domain/secretbackend/service"
+	// Register all secret providers for backend initialization
 	_ "github.com/juju/juju/internal/secrets/provider/all"
 	"github.com/juju/juju/internal/uuid"
 	"github.com/juju/juju/rpc/params"

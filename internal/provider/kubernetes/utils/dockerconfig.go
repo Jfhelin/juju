@@ -4,6 +4,7 @@
 package utils
 
 import (
+	// Import sha256 and sha512 for Docker image digest calculations
 	_ "crypto/sha256"
 	_ "crypto/sha512"
 	"encoding/json"

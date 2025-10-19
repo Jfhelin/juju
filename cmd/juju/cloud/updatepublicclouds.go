@@ -243,17 +243,17 @@ func (c *updatePublicCloudsCommand) updateControllerCopy(ctxt *cmd.Context, publ
 		oldCopies[cloudName] = currentCopy
 		newCopies[cloudName] = updatedCopy
 		if err := api.UpdateCloud(ctxt, updatedCopy); err != nil {
-			fmt.Fprintln(ctxt.Stderr, fmt.Sprintf("ERROR updating public cloud data on controller %q: %v", c.ControllerName, err))
+			fmt.Fprintf(ctxt.Stderr, "ERROR updating public cloud data on controller %q: %v", c.ControllerName, err + "\n")
 			continue
 		}
 		updatedAny = true
 	}
 	if !updatedAny {
-		fmt.Fprintln(ctxt.Stderr, fmt.Sprintf("List of public clouds on controller %q is up to date, see `juju clouds --controller %v`.", c.ControllerName, c.ControllerName))
+		fmt.Fprintf(ctxt.Stderr, "List of public clouds on controller %q is up to date, see `juju clouds --controller %v`.", c.ControllerName, c.ControllerName + "\n")
 		return nil
 	}
 	updateDetails := diffClouds(newCopies, oldCopies)
-	fmt.Fprintln(ctxt.Stderr, fmt.Sprintf("Updated list of public clouds on controller %q, %s", c.ControllerName, updateDetails))
+	fmt.Fprintf(ctxt.Stderr, "Updated list of public clouds on controller %q, %s", c.ControllerName, updateDetails + "\n")
 	return nil
 }
 

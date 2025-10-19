@@ -175,7 +175,7 @@ func (*ExecSuite) TestTargetArgParsing(c *tc.C) {
 		units:        []string{"wordpress/0", "wordpress/1", "consul/leader"},
 		modeType:     model.IAAS,
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		runCmd, execCmd := newTestExecCommand(testClock(), test.modeType)
 		cmdtesting.TestInit(c, runCmd, test.args, test.errMatch)
 		if test.errMatch == "" {
@@ -216,7 +216,7 @@ func (*ExecSuite) TestWaitArgParsing(c *tc.C) {
 		wait:     (3 * time.Minute) + (30 * time.Second),
 		modeType: model.IAAS,
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		runCmd, execCmd := newTestExecCommand(testClock(), test.modeType)
 		cmdtesting.TestInit(c, runCmd, test.args, test.errMatch)
 		if test.errMatch == "" {
@@ -725,7 +725,7 @@ use 'juju show-task' to inspect the failure
 		stdout:  jsonFormatted,
 		err:     errStr,
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		args := []string{}
 		if test.format != "" {
 			args = append(args, "--format", test.format)

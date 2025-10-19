@@ -83,21 +83,21 @@ func (s *JujuOSEnvSuite) TearDownTest(c *tc.C) {
 func SkipIfPPC64EL(c *tc.C, bugID string) {
 	if runtime.Compiler == "gccgo" &&
 		arch.NormaliseArch(runtime.GOARCH) == arch.PPC64EL {
-		c.Skip(fmt.Sprintf("Test disabled on PPC64EL until fixed - see bug %s", bugID))
+		c.Skipf("Test disabled on PPC64EL until fixed - see bug %s", bugID)
 	}
 }
 
 // SkipIfS390X skips the test if the arch is S390X.
 func SkipIfS390X(c *tc.C, bugID string) {
 	if arch.NormaliseArch(runtime.GOARCH) == arch.S390X {
-		c.Skip(fmt.Sprintf("Test disabled on S390X until fixed - see bug %s", bugID))
+		c.Skipf("Test disabled on S390X until fixed - see bug %s", bugID)
 	}
 }
 
 // SkipIfWindowsBug skips the test if the OS is Windows.
 func SkipIfWindowsBug(c *tc.C, bugID string) {
 	if runtime.GOOS == "windows" {
-		c.Skip(fmt.Sprintf("Test disabled on Windows until fixed - see bug %s", bugID))
+		c.Skipf("Test disabled on Windows until fixed - see bug %s", bugID)
 	}
 }
 
@@ -118,7 +118,7 @@ func SkipLXDNotSupported(c *tc.C) {
 
 // SkipFlaky skips the test if there is an open bug for intermittent test failures
 func SkipFlaky(c *tc.C, bugID string) {
-	c.Skip(fmt.Sprintf("Test disabled until flakiness is fixed - see bug %s", bugID))
+	c.Skipf("Test disabled until flakiness is fixed - see bug %s", bugID)
 }
 
 // SetInitialFeatureFlags sets the feature flags to be in effect for

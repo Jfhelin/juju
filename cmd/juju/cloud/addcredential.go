@@ -347,7 +347,7 @@ func (c *addCredentialCommand) interactiveAddCredential(ctxt *cmd.Context, schem
 
 	verb := "added"
 	if _, ok := existingCredentials.AuthCredentials[credentialName]; ok {
-		fmt.Fprint(ctxt.Stdout, fmt.Sprintf("A credential %q already exists locally on this client.\n", credentialName))
+		fmt.Fprintf(ctxt.Stdout, "A credential %q already exists locally on this client.\n", credentialName)
 		overwrite, err := pollster.YN("Replace local credential", false)
 		if err != nil {
 			return errors.Trace(err)

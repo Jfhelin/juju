@@ -45,7 +45,7 @@ func (*ArgsSuite) TestFlagsUsage(c *tc.C) {
 		args:          []string{"--value", "foo,bar"},
 		expectedValue: []string{"foo", "bar"},
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		f := gnuflag.NewFlagSet("test", gnuflag.ContinueOnError)
 		f.SetOutput(io.Discard)
 		var value []string
@@ -72,7 +72,7 @@ func (*ArgsSuite) TestNewStringsValue(c *tc.C) {
 		message:      "multiple values",
 		defaultValue: []string{"foo", "bar", "baz"},
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		var underlyingValue []string
 		_ = cmd.NewStringsValue(test.defaultValue, &underlyingValue)
 		c.Assert(underlyingValue, tc.DeepEquals, test.defaultValue)
@@ -116,7 +116,7 @@ func (*ArgsSuite) TestSet(c *tc.C) {
 		arg:      "foo, bar, baz",
 		expected: []string{"foo", " bar", " baz"},
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		var result []string
 		value := cmd.NewStringsValue(nil, &result)
 		error := value.Set(test.arg)
@@ -146,7 +146,7 @@ func (*ArgsSuite) TestString(c *tc.C) {
 		target:   []string{"foo", "bar", "baz"},
 		expected: "foo,bar,baz",
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		var temp []string
 		value := cmd.NewStringsValue(test.target, &temp)
 		c.Assert(value.String(), tc.Equals, test.expected)
@@ -165,7 +165,7 @@ func (*ArgsSuite) TestAppendStringsUsage(c *tc.C) {
 		args:          []string{"--value", "foo", "--value=bar"},
 		expectedValue: []string{"foo", "bar"},
 	}} {
-		c.Log(fmt.Sprintf("%v: %s", i, test.message))
+		c.Logf("%v: %s", i, test.message)
 		f := gnuflag.NewFlagSet("test", gnuflag.ContinueOnError)
 		f.SetOutput(io.Discard)
 		var value []string

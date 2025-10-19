@@ -14,7 +14,11 @@ linters:
     - sqlclosecheck
     - unconvert
     - unused
+    - staticcheck  # NEW: Code simplification (includes gosimple)
   settings:
+    staticcheck:
+      checks:
+        - "S*"  # Simplification checks (formerly gosimple)
     gocritic:
       disable-all: true
       enabled-checks:
@@ -67,6 +71,9 @@ linters:
             - - return
               - recover
               - method-call
+          severity: error
+          disabled: false
+        - name: blank-imports
           severity: error
           disabled: false
   exclusions:

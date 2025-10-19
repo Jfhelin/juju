@@ -163,8 +163,8 @@ func (i *importOperation) buildImportArgs(ctx context.Context, model description
 	modelOps := model.Operations()
 	result := make(internal.ImportOperationsArgs, 0, len(modelOps))
 	for _, op := range modelOps {
-		args, _ := argsByOp[op.Id()]
-		tasks, _ := tasksByOp[op.Id()]
+		args := argsByOp[op.Id()]
+		tasks := tasksByOp[op.Id()]
 		delete(tasksByOp, op.Id())
 
 		opArgs := internal.ImportOperationArg{

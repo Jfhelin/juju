@@ -118,7 +118,7 @@ func (a *aks) queryResourceGroupsForClusters(pollster *interact.Pollster, cluste
 	}
 	if len(groups) == 0 {
 		return "", errors.New("no resource groups found.\n" +
-			fmt.Sprintf("see 'az group --help'"))
+			"see 'az group --help'")
 	}
 
 	var displayResourceGroupOptions []string

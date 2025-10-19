@@ -14,6 +14,7 @@ import (
 	coremodel "github.com/juju/juju/core/model"
 	"github.com/juju/juju/core/trace"
 	clouderrors "github.com/juju/juju/domain/cloud/errors"
+	// Import model errors for error type registration
 	_ "github.com/juju/juju/domain/model/errors"
 	modelconfigservice "github.com/juju/juju/domain/modelconfig/service"
 	"github.com/juju/juju/domain/modeldefaults"

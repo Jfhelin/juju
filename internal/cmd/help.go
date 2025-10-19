@@ -120,7 +120,7 @@ func (c *helpCommand) topicList() string {
 		shortHelp := c.topics[name].short
 		topics[i] = fmt.Sprintf("%-*s  %s", longest, name, shortHelp)
 	}
-	return fmt.Sprintf("%s", strings.Join(topics, "\n"))
+	return strings.Join(topics, "\n")
 }
 
 func (c *helpCommand) Info() *Info {

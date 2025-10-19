@@ -201,7 +201,7 @@ func WriteError(writer io.Writer, err error) {
 // Getenv looks up an environment variable in the context. It mirrors
 // os.Getenv. An empty string is returned if the key is not set.
 func (ctx *Context) Getenv(key string) string {
-	value, _ := ctx.Env[key]
+	value := ctx.Env[key]
 	return value
 }
 

@@ -399,9 +399,7 @@ func (c *loginCommand) publicControllerLogin(
 	// Keep track of existing interactors as the dial callback will create
 	// new ones each time it gets invoked.
 	var existing []httpbakery.Interactor
-	for _, i := range bclient.InteractionMethods {
-		existing = append(existing, i)
-	}
+	existing = append(existing, bclient.InteractionMethods...)
 
 	dial := func(d *jujuclient.AccountDetails) (api.Connection, error) {
 		// Attach an interactor which will be invoked if we attempt to

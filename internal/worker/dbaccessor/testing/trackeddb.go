@@ -9,6 +9,7 @@ import (
 
 	"github.com/canonical/sqlair"
 	"github.com/juju/errors"
+	// Import go-sqlite3 driver for SQLite testing support
 	_ "github.com/mattn/go-sqlite3"
 	"gopkg.in/tomb.v2"
 

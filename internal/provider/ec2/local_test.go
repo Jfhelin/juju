@@ -1698,8 +1698,7 @@ func (t *localServerSuite) TestStartInstanceWithImageID(c *tc.C) {
 	instance, err := testing.StartInstanceWithParams(c, env, "1", params)
 	c.Assert(err, tc.ErrorIsNil)
 
-	var instanceID string
-	instanceID = string(instance.Instance.Id())
+	var instanceID string = string(instance.Instance.Id())
 	instanceDesc, err := t.client.DescribeInstances(nil, &awsec2.DescribeInstancesInput{InstanceIds: []string{instanceID}})
 	c.Assert(err, tc.ErrorIsNil)
 	c.Assert(expectedImageID, tc.DeepEquals, instanceDesc.Reservations[0].Instances[0].ImageId)

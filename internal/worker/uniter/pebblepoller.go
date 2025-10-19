@@ -130,7 +130,7 @@ func (p *pebblePoller) poll(containerName string) error {
 	}
 
 	p.mut.Lock()
-	lastBootID, _ := p.pebbleBootIDs[containerName]
+	lastBootID := p.pebbleBootIDs[containerName]
 	p.mut.Unlock()
 	if lastBootID == info.BootID {
 		// Boot ID is the same as last time, so it's normal poll and no

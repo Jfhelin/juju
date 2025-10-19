@@ -4,6 +4,7 @@
 package resource
 
 import (
+	// Import sha256 and sha512 for image digest calculations
 	_ "crypto/sha256"
 	_ "crypto/sha512"
 	"time"

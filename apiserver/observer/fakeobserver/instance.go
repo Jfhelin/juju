@@ -74,7 +74,7 @@ func (f *RPCInstance) ServerRequest(ctx context.Context, hdr *rpc.Header, body i
 // funcName returns the name of the function/method that called
 // funcName() It panics if this is not possible.
 func funcName() string {
-	if pc, _, _, ok := runtime.Caller(1); ok == false {
+	if pc, _, _, ok := runtime.Caller(1); !ok {
 		panic("could not find function name")
 	} else {
 		parts := strings.Split(runtime.FuncForPC(pc).Name(), ".")

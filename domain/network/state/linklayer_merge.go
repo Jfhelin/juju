@@ -392,7 +392,7 @@ func (st *State) computeMergeAddressChanges(
 	}
 	for _, device := range existingDevices {
 		deviceName, addresses := device.Name, device.Addresses
-		incomings, _ := incomingAddresses[deviceName]
+		incomings := incomingAddresses[deviceName]
 		// Find updates to existing addresses.
 		for _, existing := range addresses {
 			matchIncoming, ok := findMatchingAddresses(existing, incomings)

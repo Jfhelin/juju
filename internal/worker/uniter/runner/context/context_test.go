@@ -517,12 +517,8 @@ func (s *InterfaceSuite) TestRequestRebootNow(c *tc.C) {
 	ctx := s.GetContext(c, ctrl, -1, "", names.StorageTag{}).(*context.HookContext)
 
 	var stub testhelpers.Stub
-	var p *mockProcess
-	p = &mockProcess{func() error {
-		// Reboot priority should be set before the process
-		// is killed, or else the client waiting for the
-		// process to exit will race with the setting of
-		// the priority.
+	var p *mockProcess = &mockProcess{func() error {
+
 		priority := ctx.GetRebootPriority()
 		c.Assert(priority, tc.Equals, jujuc.RebootNow)
 		return stub.NextErr()
@@ -545,17 +541,13 @@ func (s *InterfaceSuite) TestRequestRebootNowTimeout(c *tc.C) {
 	ctx := s.GetContext(c, ctrl, -1, "", names.StorageTag{}).(*context.HookContext)
 
 	var advanced bool
-	var p *mockProcess
-	p = &mockProcess{func() error {
-		// Reboot priority should be set before the process
-		// is killed, or else the client waiting for the
-		// process to exit will race with the setting of
-		// the priority.
+	var p *mockProcess = &mockProcess{func() error {
+
 		priority := ctx.GetRebootPriority()
 		c.Assert(priority, tc.Equals, jujuc.RebootNow)
 		if !advanced {
 			advanced = true
-			s.clock.Advance(time.Hour) // force timeout
+			s.clock.Advance(time.Hour)
 		}
 		return nil
 	}}

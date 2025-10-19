@@ -1122,7 +1122,7 @@ VALUES ($setApplicationExtraEndpointBinding.*)
 
 	refreshedExtraBindings := make([]setApplicationExtraEndpointBinding, 0, len(extraEndpointBindings))
 	for _, charmExtraBinding := range charmExtraBindings {
-		originalboundSpaceUUID, _ := extraBindingsMap[charmExtraBinding.Name]
+		originalboundSpaceUUID := extraBindingsMap[charmExtraBinding.Name]
 
 		refreshedExtraBindings = append(refreshedExtraBindings, setApplicationExtraEndpointBinding{
 			ApplicationID: coreapplication.UUID(appIdent.UUID),

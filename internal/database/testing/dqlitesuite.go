@@ -16,6 +16,7 @@ import (
 	"github.com/canonical/sqlair"
 	"github.com/juju/errors"
 	"github.com/juju/tc"
+	// Import go-sqlite3 driver for SQLite testing support
 	_ "github.com/mattn/go-sqlite3"
 
 	coredatabase "github.com/juju/juju/core/database"

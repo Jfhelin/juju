@@ -3647,7 +3647,7 @@ func zeroPtr[T comparable](t *T) T {
 // RetrievedByTypeID maps the RetrievedByType string to an integer ID based on
 // predefined categories.
 func RetrievedByTypeID(retrievedByType string) int {
-	res, _ := map[string]int{
+	res := map[string]int{
 		"user":        0,
 		"unit":        1,
 		"application": 2,
@@ -3657,7 +3657,7 @@ func RetrievedByTypeID(retrievedByType string) int {
 
 // TypeID returns the integer ID corresponding to the resource kind stored in d.Type.
 func TypeID(kind charmresource.Type) int {
-	res, _ := map[charmresource.Type]int{
+	res := map[charmresource.Type]int{
 		charmresource.TypeFile:           0,
 		charmresource.TypeContainerImage: 1,
 	}[kind]
@@ -3667,7 +3667,7 @@ func TypeID(kind charmresource.Type) int {
 // OriginTypeID maps the OriginType string to its corresponding integer ID
 // based on predefined categories.
 func OriginTypeID(originType string) int {
-	res, _ := map[string]int{
+	res := map[string]int{
 		"upload": 0,
 		"store":  1,
 	}[originType]
@@ -3676,7 +3676,7 @@ func OriginTypeID(originType string) int {
 
 // StateID returns the integer ID corresponding to the state stored in d.State.
 func StateID(state string) int {
-	res, _ := map[string]int{
+	res := map[string]int{
 		"available": 0,
 		"potential": 1,
 	}[state]

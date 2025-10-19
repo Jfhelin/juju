@@ -143,8 +143,8 @@ func (p EnvironProvider) Validate(ctx context.Context, cfg, old *config.Config) 
 			return nil, fmt.Errorf("policy-target-group has invalid UUID: %q", ptg)
 		}
 	}
-	if useGBP := cfgAttrs[UseOpenstackGBPKey]; useGBP != nil && useGBP.(bool) == true {
-		if hasPTG == false {
+	if useGBP := cfgAttrs[UseOpenstackGBPKey]; useGBP != nil && useGBP.(bool) {
+		if !hasPTG {
 			return nil, fmt.Errorf("policy-target-group must be set when use-openstack-gbp is set")
 		}
 		if network := cfgAttrs[NetworkKey]; network != nil && network.(string) != "" {

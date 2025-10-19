@@ -257,7 +257,7 @@ func (v *mockVolumeAccessor) VolumeAttachmentParams(_ context.Context, ids []par
 	for _, id := range ids {
 		// Parameters are returned regardless of whether the attachment
 		// exists; this is to support reattachment.
-		instanceId, _ := v.provisionedMachines[id.MachineTag]
+		instanceId := v.provisionedMachines[id.MachineTag]
 		result = append(result, params.VolumeAttachmentParamsResult{Result: params.VolumeAttachmentParams{
 			MachineTag: id.MachineTag,
 			VolumeTag:  id.AttachmentTag,

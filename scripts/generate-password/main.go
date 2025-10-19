@@ -66,7 +66,7 @@ func main() {
 			*user, salt, hash)
 	} else {
 		var collection string
-		if strings.Index(agent, "/") < 0 {
+		if !strings.Contains(agent, "/") {
 			// must be a machine
 			collection = "machines"
 			if _, err := strconv.Atoi(agent); err != nil {

@@ -215,7 +215,7 @@ func (s *ProxyUpdaterSuite) useJujuConfig(c *tc.C) (proxy.Settings, proxy.Settin
 
 func (s *ProxyUpdaterSuite) TestInitialStateLegacyProxy(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("apt settings not handled on %s", host.String()))
+		c.Skipf("apt settings not handled on %s", host.String())
 	}
 
 	proxySettings, aptProxySettings := s.useLegacyConfig(c)
@@ -234,7 +234,7 @@ func (s *ProxyUpdaterSuite) TestInitialStateLegacyProxy(c *tc.C) {
 
 func (s *ProxyUpdaterSuite) TestInitialStateJujuProxy(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("apt settings not handled on %s", host.String()))
+		c.Skipf("apt settings not handled on %s", host.String())
 	}
 
 	proxySettings, aptProxySettings := s.useJujuConfig(c)
@@ -391,7 +391,7 @@ func nextCall(c *tc.C, calls <-chan []string) []string {
 
 func (s *ProxyUpdaterSuite) TestSnapProxySetNoneSet(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("snap settings not handled on %s", host.String()))
+		c.Skipf("snap settings not handled on %s", host.String())
 	}
 
 	logger := s.config.Logger
@@ -420,7 +420,7 @@ func (s *ProxyUpdaterSuite) TestSnapProxySetNoneSet(c *tc.C) {
 
 func (s *ProxyUpdaterSuite) TestSnapProxySet(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("snap settings not handled on %s", host.String()))
+		c.Skipf("snap settings not handled on %s", host.String())
 	}
 
 	logger := s.config.Logger
@@ -454,7 +454,7 @@ func (s *ProxyUpdaterSuite) TestSnapProxySet(c *tc.C) {
 
 func (s *ProxyUpdaterSuite) TestSnapStoreProxy(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("snap settings not handled on %s", host.String()))
+		c.Skipf("snap settings not handled on %s", host.String())
 	}
 
 	logger := s.config.Logger
@@ -486,7 +486,7 @@ func (s *ProxyUpdaterSuite) TestSnapStoreProxy(c *tc.C) {
 
 func (s *ProxyUpdaterSuite) TestSnapStoreProxyURL(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("snap settings not handled on %s", host.String()))
+		c.Skipf("snap settings not handled on %s", host.String())
 	}
 
 	logger := s.config.Logger
@@ -540,7 +540,7 @@ DATA...
 
 func (s *ProxyUpdaterSuite) TestSnapStoreProxyURLOverridesManualAssertion(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("snap settings not handled on %s", host.String()))
+		c.Skipf("snap settings not handled on %s", host.String())
 	}
 
 	logger := s.config.Logger
@@ -596,7 +596,7 @@ DATA...
 
 func (s *ProxyUpdaterSuite) TestAptMirror(c *tc.C) {
 	if host := jujuos.HostOS(); host == jujuos.CentOS {
-		c.Skip(fmt.Sprintf("apt mirror not supported on %s", host.String()))
+		c.Skipf("apt mirror not supported on %s", host.String())
 	}
 
 	logger := s.config.Logger

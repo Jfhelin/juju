@@ -19,7 +19,7 @@ type SecretBackendRotateChange struct {
 func (s SecretBackendRotateChange) GoString() string {
 	whenMsg := "never"
 	if !s.NextTriggerTime.IsZero() {
-		interval := s.NextTriggerTime.Sub(time.Now())
+		interval := time.Until(s.NextTriggerTime)
 		if interval < 0 {
 			whenMsg = fmt.Sprintf("%v ago at %s", -interval, s.NextTriggerTime.Format(time.RFC3339))
 		} else {
